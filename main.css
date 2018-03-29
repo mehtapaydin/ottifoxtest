@@ -3,12 +3,18 @@ body, html {
   height: 100%;
 }
 
-body {
+/* body {
   background-color: #232323;
+} */
+
+body {
+  background: #b3bdc4;
+  background: -webkit-linear-gradient(to top left, #b3bdc4, #f9f7ed);
+  background: linear-gradient(to top left, #b3bdc4, #f9f7ed);
 }
 
 body.AR-container {
-  margin : 0px; 
+  margin : 0px;
   overflow: hidden;
   background-color: none;
 }
@@ -21,12 +27,12 @@ body.AR-container {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
+
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  
+
   margin: auto;
 
   font-size: 12px;
@@ -70,7 +76,7 @@ body.AR-container {
   position: absolute;
   left: 2em;
   bottom: 2em;
-  
+
   color: rgba(255, 255, 255, 0.8);
   font-size: 12px;
 }

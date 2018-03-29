@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     };
 
+    var fuse = document.querySelector('#fuse-cursor');
+    var fuseProgress = document.querySelector('#fuse-progress');
+
     scene.addEventListener('loaded', function (e) {
         setTimeout(() => {
             loading.style.display = 'none';
@@ -49,9 +52,22 @@ document.addEventListener('DOMContentLoaded', function() {
         return false;
     });
 
+    fuse.addEventListener('fusing', function (e) {
+        fuseProgress.emit('fusing');
+    });
+
     startButton.addEventListener('click', function (e) {
         activateSoundsForTouch();
         splash.style.display = 'none';
-        emitEvent('scene-started', ['#planet', '#shuttle-light', '#shuttle-light', '#shuttle', '#shuttle']);
+        emitEvent('scene-started', ['#main-camera', '#lisette-2', '#lisette-1', '#sphere-1', '#sphere-0', '#opening-text', '#planet', '#shuttle-light', '#shuttle-light', '#shuttle', '#shuttle']);
+    });
+
+    document.querySelector('#sphere-1').addEventListener('click', function (e) {
+        emitEvent('sphere-1-clicked', ['#lisette-2']);
+        emitMediaEvent('stopSound', ['#lisette-1']);
+    });
+
+    document.querySelector('#sphere-0').addEventListener('click', function (e) {
+        emitEvent('sphere-0-clicked', ['#lisette-1', '#text-t', '#text-t', '#text-l-1', '#text-l-1', '#text-u', '#text-u', '#text-a-2', '#text-a-2', '#text-s-1', '#text-s-1', '#text-s', '#text-s', '#text-a-1', '#text-a-1', '#text-l', '#text-l', '#text-a', '#text-a', '#text-b', '#text-b', '#text-r', '#text-r', '#text-e', '#text-e', '#text-v', '#text-v']);
     });
 });
