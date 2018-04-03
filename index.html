@@ -1,197 +1,55 @@
 <!DOCTYPE html>
 <html>
-
+  
   <head>
-    <title>test2.otfx</title>
-    <meta name="description" content="Text - A-Frame">
+    <title>New WebVR Scene.otfx</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="aframe.0.8.1.min.js"></script>
-    <!-- <script src="https://aframe.io/releases/0.8.1/aframe.min.js"></script> -->
     <script src="aframe-animation-component.min.js"></script>
-    <script src="aframe-poly-api-obj-component.min.js"></script>
     <script src="main.js"></script>
-    <!-- 3d.io components -->
-  <script src="https://3d.io/releases/3dio-js/1.x.x-beta/3dio.min.js"></script>
-  <!-- orbital camera -->
-  <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.12/dist/aframe-orbit-controls-component.min.js"></script>
-
   </head>
-
+  
   <body>
     <div id="splash">
       <div class="loading"></div>
       <div class="start-button">Start</div>
-      <div class="credits">
-        <div class="wrapper">	<a class="show-credits" href="#">Model Credits</a>
-          <ul class="credits-list">
-            <li><a href="https://poly.google.com/view/7A5NVa5874i" target="_blank">supermontaña: Stonemass</a>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
-
-    <a-scene fog="color: #672dca; far: 15.98; type: linear;">
+    
+    <a-scene fog="color: #50bfe7; far: 0; type: linear;" shadow="receive: true; cast: true;">
       <a-assets>
-        <a-asset-item id="model_rocketobj" src="assets/model_rocket.obj"></a-asset-item>
-        <a-asset-item id="materialsmtl" src="assets/materials.mtl"></a-asset-item>
-        <audio id="Lisette1m4a" src="assets/HyqjwCYcf/Lisette1.m4a"></audio>
-        <a-asset-item id="materialsmtl0" src="assets/rJwV9-v5z/materials.mtl"></a-asset-item>
-        <a-asset-item id="modelobj" src="assets/model.obj"></a-asset-item>
-        <a-asset-item id="modelobj1" src="assets/rJwV9-v5z/model.obj"></a-asset-item>
-        <audio id="Lisette2m4a" src="assets/BkdCZd5cf/Lisette2.m4a"></audio>
+        <a-asset-item id="scenebin" src="assets/H1_0WrloM/scene.bin" response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="scenegltf" src="assets/H1_0WrloM/scene.gltf"></a-asset-item>
+        <a-asset-item id="scenebin1" src="assets/S1GkfHliG/scene.bin" response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="scenegltf2" src="assets/S1GkfHliG/scene.gltf"></a-asset-item>
+        <a-asset-item id="scenebin3" src="assets/rJ7xzrljz/scene.bin" response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="scenegltf4" src="assets/rJ7xzrljz/scene.gltf"></a-asset-item>
       </a-assets>
-
-      <a-entity id="main-camera-wrapper" position="0.00 1.60 8.25" rotation="0 0 0" animation="startEvents: scene-started; property: position; to: 0.00 1.60 2.52; dur: 7000; easing: easeInOutQuart; elasticity: 400; delay: 1000; dir: normal; loop: 0; ">
+      
+      <a-entity id="main-camera-wrapper" position="0 1.6 3" rotation="0 0 0">
         <a-camera id="main-camera" visible="true" wasd-controls="acceleration: 75; easing: 10; enabled: true; fly: false;"
-        cursor="rayOrigin: mouse;" raycaster="objects: .clickable; interval: 1;">
-
-          <a-ring id="fuse-progress" geometry="radiusInner: 0.02; radiusOuter: 0.03; thetaLength: 360; thetaStart: 90;"
-          material="color: #ef2e5f; opacity: 0; shader: flat;" position="0 0 -0.999" rotation="0 0 0"
-          scale="1 1 1" visible="true" animation="delay: 0; dir: normal; dur: 1500; easing: linear; loop: 0; property: geometry.thetaLength; startEvents: fusing; to: 0; from: 360;"
-          animation__1="delay: 0; dir: normal; dur: 500; easing: linear; loop: 0; property: opacity; startEvents: fusing; to: 1; from: 0;"></a-ring>
-          <a-cursor id="fuse-cursor" cursor="fuse: true;" geometry="radiusInner: 0.02; radiusOuter: 0.03; thetaLength: 360; thetaStart: 90;"
-          material="color: #ffffff; opacity: 1; shader: flat;" position="0 0 -1" raycaster="objects: .clickable;"
-          rotation="0 0 0" scale="1 1 1" visible="true"></a-cursor>
-        </a-camera>
+        cursor="rayOrigin: mouse;" raycaster="objects: .clickable; interval: 1;"></a-camera>
       </a-entity>
-
-
-      <!-- 3d.io model (format: data3d) -->
-        <a-entity id="apt" io3d-data3d="url:https://storage.3d.io/535e624259ee6b0200000484/170831-2210-725ocw/archilogic_2017-08-31_22-10-07_K9bF6f.gz.data3d.buffer" position="5.2 0 0"></a-entity>
-
-
-      <a-sound id="lisette-2" position="-0.31448410304651675 0.18592649005253103 -4.479119632242057"
-      sound="autoplay: false; loop: false; src: #Lisette2m4a; volume: 1;" visible="true"
-      animation="startEvents: scene-started; property: sound.volume; to: 0; dur: 2000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-1-clicked; property: sound.volume; to: 1; dur: 2000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-sound>
-
-      <a-sound id="lisette-1" position="2.50 1.07 0.00" sound="autoplay: false; loop: false; src: #Lisette1m4a; volume: 1;"
-      visible="true" animation="startEvents: sphere-0-clicked; property: sound.volume; to: 1; dur: 1000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: scene-started; property: sound.volume; to: 0; dur: 1000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-sound>
-
-      <a-sphere id="sphere-1" position="-0.25 1.75 -4.75" rotation="0 0 0" scale="0.35 0.35 0.35"
-      geometry="radius: 1;" material="color: #ffffff; opacity: 1; shader: standard; metalness: 0.1; roughness: 0.28; side: double; repeat: 1 1;"
-      shadow="cast: true; receive: true;" visible="true" class="clickable" animation="startEvents: scene-started; property: scale; to: 0.2 0.2 0.2; dur: 2000; easing: linear; elasticity: 400; delay: 0; dir: alternate; loop: true; "></a-sphere>
-
-      <a-sphere id="sphere-0" position="2.75 1.00 -0.50" rotation="0.00 0.00 0.00"
-      scale="0.37 0.37 0.37" geometry="radius: 1;" material="color: #ffffff; opacity: 1; shader: standard; metalness: 0.18; roughness: 0.3; side: double; repeat: 1 1;"
-      shadow="cast: true; receive: true;" visible="true" class="clickable"
-      animation="startEvents: scene-started; property: scale; to: 0.2 0.2 0.2; dur: 1000; easing: linear; elasticity: 400; delay: 0; dir: alternate; loop: true; "
-      animation__1="startEvents: click; property: material.opacity; to: 0.4; dur: 2000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-sphere>
-
-    <a-entity position="0.00 1.74 7.00" geometry="primitive: plane; width: auto; height: auto" material="color: #eeeee"
-                       text="color: white; align: center; value: Lisette Johnson, 56, Richmond, Virginia; width: 2; "   animation="startEvents: scene-started; property: text.opacity; to: 0; dur: 2000; easing: easeInOutQuart; elasticity: 400; delay: 1000; dir: normal; loop: 0; "></a-entity>
-<!--
-    <a-entity id="opening-text" text="value:  Lisette Johnson, 56, Richmond, Virginia; font: assets/DejaVu-sdf.fnt; align: center; opacity: 1; color: #ffffff;" position="0.00 1.74 5.00"
-    animation="startEvents: scene-started; property: text.opacity; to: 0; dur: 2000; easing: easeInOutQuart; elasticity: 400; delay: 1000; dir: normal; loop: 0; "></a-entity> -->
-
-      <!-- <a-text id="opening-text" position="0.00 1.74 5.00" rotation="0 0 0"
-      scale="1 1 1" text="value: Lisette Johnson, 56, Richmond, Virginia; font: assets/DejaVu-sdf.fnt; align: center; opacity: 1; color: #ffffff; wrapCount: 28.10; letterSpacing: 0; lineHeight: 51.18; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: scene-started; property: text.opacity; to: 0; dur: 2000; easing: easeInOutQuart; elasticity: 400; delay: 1000; dir: normal; loop: 0; "></a-text> -->
-
-
-
-      <a-text id="text-t" position="6.00 1.25 -0.50" rotation="0 0 0" scale="1 1 1"
-      text="value: T
-; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 3.88 4.05 0.00; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-l-1" position="5.50 1.50 0.25" rotation="0 0 0" scale="1 1 1"
-      text="value: L
-; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: position; to: 4.84 2.22 -0.41; dur: 2000; easing: easeOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-u" position="5.75 1.25 -0.25" rotation="0 0 0" scale="1 1 1"
-      text="value: U; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 5.15 1.79 -0.25; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-a-2" position="5.61 1.3 -0.50" rotation="0 0 0" scale="1 1 1"
-      text="value: A; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 4.99 1.24 0.4; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-s-1" position="5.42 1.63 -1.00" rotation="0 0 0" scale="1.27 1.27 1.27"
-      text="value: S
-; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 4.00 1.25 -1.00; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-s" position="5.00 -0.25 -2.00" rotation="0 0 0" scale="1.83 1.83 1.83"
-      text="value: S; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: position; to: 4.00 0.75 -1.25; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-a-1" position="4.75 0.75 -1.50" rotation="0 0 0" scale="1 1 1"
-      text="value: A; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: position; to: 3.75 1.00 -1.25; dur: 2200; easing: easeOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-l" position="4.25 1.25 -1.00" rotation="0 0 0" scale="1 1 1"
-      text="value: L; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 3.50 1.25 -1.17; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-a" position="3.25 2.25 -1.00" rotation="0 0 0" scale="1 1 1"
-      text="value: A; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 3.25 1.50 -1.23; dur: 2200; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-b" position="2.50 1.75 -1.75" rotation="0 0 0" scale="1 1 1"
-      text="value: B; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 2.75 1.50 -1.25; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-r" position="2.50 0.75 -2.25" rotation="0 0 0" scale="1 1 1"
-      text="value: R; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 2.50 1.25 -1.30; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-e" position="1.71 1.56 -1.87" rotation="0 0 0" scale="1 1 1"
-      text="value: E; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 36; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: position; to: 2.00 1.25 -0.50; dur: 2100; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-text id="text-v" position="0.33 -0.49 -1.73" rotation="0 0 0" scale="3.21 3.21 3.21"
-      text="value: V; font: assets/OpenSans-CondBold.fnt; align: center; opacity: 0; color: #ffffff; wrapCount: 64; letterSpacing: 0; lineHeight: 64; width: 6; height: 0; side: double; anchor: center;"
-      shadow="cast: true; receive: true;" visible="true" animation="startEvents: sphere-0-clicked; property: position; to: 1.75 0.61 -0.75; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="startEvents: sphere-0-clicked; property: text.opacity; to: 1; dur: 2000; easing: easeInOutQuint; elasticity: 400; delay: 0; dir: normal; loop: 0; "></a-text>
-
-      <a-entity id="poly-model" position="0.1109288542024453 0.34173375753552815 -2.0447472514512537"
-      rotation="0 0 0" scale="1 1 1" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5;"
-      poly-api-obj="obj: #modelobj1; mtl: #materialsmtl0;" shadow="cast: true; receive: true;"
-      visible="true"></a-entity>
-
+      
+      <a-gltf-model id="g-ltf-model-2" position="2.75 1.60 -0.50" rotation="0 0 0" scale="1 1 1"
+      gltf-model="#scenegltf4" shadow="cast: true; receive: true;" visible="true"></a-gltf-model>
+      
+      <a-gltf-model id="g-ltf-model-1" position="-2.75 1.50 -1.00" rotation="0 0 0"
+      scale="1 1 1" gltf-model="#scenegltf2" shadow="cast: true; receive: true;" visible="true"></a-gltf-model>
+      
+      <a-gltf-model id="g-ltf-model" position="0 1.6 -1" rotation="0 0 0"
+      scale="1 1 1" gltf-model="#scenegltf" shadow="cast: true; receive: true;" visible="true"></a-gltf-model>
+      
       <a-sky id="sky" geometry="radius: 5000; segmentsHeight: 20; segmentsWidth: 64;"
-      material="color: #5f2edf; flatShading: true; opacity: 1; shader: standard; side: double;"
-      position="0 0 0" rotation="0 0 0" scale="-1 1 1" visible="true"></a-sky>
-
-      <a-plane id="ground" geometry="height: 5000; width: 5000;" material="color: #7c46c4; metalness: 0.5; opacity: 0.28; roughness: 1; shader: standard; side: double;"
-      position="0 0 0" rotation="-90 0 0" visible="true"></a-plane>
-
-      <a-light id="point-light-1" light="color: #de3f6b; distance: 4.82; intensity: 4.80; type: point;"
-      position="0.00 3.00 -1.60" visible="true"></a-light>
-
-      <a-light id="ambient-light" light="color: #9b2fdf; intensity: 0.22; type: ambient;"
-      visible="true"></a-light>
-
-      <!-- <a-obj-model id="planet" material="color: #ffffff; metalness: 0.5; opacity: 1; roughness: 1; shader: standard; side: double;"
-      obj-model="mtl: #materialsmtl; obj: #modelobj;" position="-1.90 1.10 -2.00" rotation="1.61 0 0.00"
-      scale="1 1 1" visible="true" class="clickable" animation="startEvents: click; property: position; to: -1.90 4.32 -2.00; dur: 2000; easing: linear; elasticity: 400; delay: 0; dir: normal; loop: 0; "
-      animation__1="delay: 0; dir: normal; dur: 7000; easing: easeInOutQuad; elasticity: 400; loop: true; property: rotation; startEvents: scene-started; to: 1.61 -360 0.00; "></a-obj-model> -->
-
-      <a-light id="shuttle-light" light="color: #ffa11d; distance: 2.54; intensity: 9.24; type: point;"
-      position="1.3 -3.5 -0.04" visible="true" animation="delay: 0; dir: normal; dur: 7000; easing: easeInOutQuad; elasticity: 400; loop: true; property: position; startEvents: scene-started; to: -1.9 11 -1; "
-      animation__1="delay: 0; dir: normal; dur: 7000; easing: easeInQuad; elasticity: 400; loop: true; property: light.distance; startEvents: scene-started; to: 9; "></a-light>
-
-      <!-- <a-obj-model id="shuttle" material="color: #ffffff; metalness: 0.5; opacity: 1; roughness: 1; shader: standard; side: double;"
-      obj-model="obj: #model_rocketobj;" position="1.30 -1.92 -0.10" rotation="-19.4 0.00 0.00"
-      scale="1 1 1" visible="true" animation="delay: 0; dir: normal; dur: 7000; easing: linear; elasticity: 400; loop: true; property: rotation; startEvents: scene-started; to: 0.00 360 0.00; "
-      animation__1="delay: 0; dir: normal; dur: 7000; easing: easeInOutQuad; elasticity: 400; loop: true; property: position; startEvents: scene-started; to: -1.90 10 -1; "></a-obj-model>
-    </a-scene> -->
+      material="color: #000000; flatShading: true; opacity: 1; repeat: 1 1; shader: standard; side: double;"
+      position="0 0 0" rotation="0 0 0" scale="-1 1 1" shadow="receive: true; cast: true;"
+      visible="true"></a-sky>
+      
+      <a-plane id="ground" geometry="height: 5000; width: 5000;" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      position="0 0 0" rotation="-90 0 0" shadow="receive: true; cast: true;" visible="true"></a-plane>
+      
+      <a-light id="point-light-1" light="castShadow: false; color: #ffffff; distance: 0; intensity: 1; type: point;"
+      position="0 7 5" visible="true"></a-light>
+    </a-scene>
   </body>
 
 </html>
